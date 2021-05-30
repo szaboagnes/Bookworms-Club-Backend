@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  bookworms-club-mongodb-seed:
+    build:
+      context: ./
+    container_name: bookworms_club_mongodb_seed
+    env_file:
+      - ./env_file
+
+networks:
+  default:
+    external:
+      name: nginx-proxy

@@ -1,0 +1,46 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "lint": "eslint --ext .js --max-warnings=0 .",
+    "lint-fix": "eslint --fix --ext .js --max-warnings=0 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/bookworms-club/backend.git"
+  },
+  "author": "Szabó Ágnes-Kriszta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/bookworms-club/backend/issues"
+  },
+  "homepage": "https://gitlab.com/bookworms-club/backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "google-auth-library": "^7.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.12",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "validator": "^13.6.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0"
+  }
+}
