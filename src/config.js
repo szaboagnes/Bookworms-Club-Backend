@@ -19,4 +19,12 @@ module.exports = Object.freeze({
 		GOOGLE_CLIENT_SECRET:
 			process.env.GOOGLE_CLIENT_SECRET || 'G1qJQRo8kknCLY7u_Hx8aIq-',
 	},
+	jsonwebtoken: {
+		SECRET_KEY:
+			process.env.SECRET_KEY ||
+			'wP83PQ1z176wpplzFQYZX7C1OkSms0PTN3UEQGhTJf68dKk70iesSi7xlyaFCtP',
+	},
+	auth: {
+		TOKEN_EXPIRATION: process.env.TOKEN_EXPIRATION || '7d',
+	}
 });

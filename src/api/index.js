@@ -1,11 +1,13 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+
 const userAPI = require('./routes/user.route');
+// const bookAPI = require('./routes/book.route');
 
 const router = express.Router();
 
-router.use(bodyParser.json());
+router.use(express.json());
 
 router.use('/users', userAPI);
+// router.use('/books', bookAPI);
 
 module.exports = router;

@@ -12,8 +12,8 @@ const generateJWTToken = (userData) => {
 	});
 };
 
-const generateUsername = (givenName) => {
-	let username = givenName.replace(/\s+/g, '');
+const generateUsername = (firstName) => {
+	let username = firstName.replace(/\s+/g, '');
 	username = username.replace(/'+/g, '');
 	username = username.replace(/-+/g, '');
 	username = username.toLowerCase();
@@ -27,21 +27,21 @@ const generateUsername = (givenName) => {
 exports.create = (req, res, next) => {
 	const userData = req.body;
 
-	const { googleIdToken } = userData;
-	delete userData.googleIdToken;
+	const { idToken } = userData;
+	// delete userData.googleIdToken;
 
 	// validate idToken
 	oAuth2Client
 		.verifyIdToken({
-			idToken: googleIdToken,
+			idToken,
 			audience: [google.GOOGLE_CLIENT_ID],
 		})
 		.then(() => {
 			User.findOne({ googleId: userData.id })
 				.then((foundUser) => {
 					if (foundUser) {
-						foundUser.familyName = userData.familyName;
-						foundUser.givenName = userData.givenName;
+						foundUser.lastName = userData.lastName;
+						foundUser.firstName = userData.firstName;
 						foundUser.photo = userData.photo;
 
 						// update user and send back the token
@@ -57,7 +57,7 @@ exports.create = (req, res, next) => {
 							})
 							.catch(next);
 					} else {
-						userData.username = generateUsername(userData.givenName);
+						userData.username = generateUsername(userData.firstName);
 						userData.googleId = userData.id;
 						delete userData.id;
 

@@ -37,12 +37,12 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	givenName: {
+	firstName: {
 		// Google
 		type: String,
 		required: true,
 	},
-	familyName: {
+	lastName: {
 		// Google
 		type: String,
 		required: true,

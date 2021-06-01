@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const logger = require('./src/logger');
 const api = require('./src/api');
@@ -9,6 +10,15 @@ const { server, database } = require('./src/config');
 const errorMiddleware = require('./src/middleware/errorHandler');
 
 const app = express();
+
+app.use(express.json());
+app.use(
+	express.urlencoded({
+		extended: true,
+	})
+);
+
+app.use(cors())
 
 // Logger
 app.use(morgan('combined', { stream: logger.stream }));
